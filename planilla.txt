@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumatoria de Inputs</title>
+  <style>
+    input[type="number"], input[type="date"] {
+      width: 100px;
+      margin-right: 10px;
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+    }
+    .input-group {
+      margin-bottom: 5px;
+      display: flex; /* Cambiar a flex para alinear inputs en fila */
+      align-items: center; /* Alinear verticalmente */
+    }
+  </style>
+</head>
+<body>
+  <h1>Planilla Servicio de Seguridad Física</h1>
+  <div id="inputContainer"></div>
+  <button onclick="addInputs()">Añadir Campos</button>
+  <button onclick="removeSelectedInputs()">Eliminar Campos</button>
+  <label id="resultLabel">Subtotal: 0.00</label>
+  <label id="percentLabel">I.V.A. 15%: 0.00</label>
+  <label id="finalLabel">Total: 0.00</label>
+
+  <script>
+    // Arreglo para almacenar los grupos de inputs
+    let inputGroups = [];
+
+    // Función para añadir un nuevo bloque de inputs
+    function addInputs() {
+      const inputGroup = document.createElement("div");
+      inputGroup.className = "input-group";
+
+      // Añadir cuatro inputs numéricos
+      for (let i = 0; i < 4; i++) {
+        const inputId = `input-${inputGroups.length + 1}-${i + 1}`;
+        
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = inputId;
+        input.placeholder = `Input ${inputGroups.length + 1}.${i + 1}`;
+        input.addEventListener('input', updateSum);  // Evento para actualizar la suma
+
+        // Añadir el input al contenedor del grupo
+        inputGroup.appendChild(input);
+      }
+
+      // Crear inputs de tipo fecha
+      const dateInput1 = document.createElement("input");
+      dateInput1.type = "date";
+      dateInput1.id = `date1-${inputGroups.length + 1}`;
+      dateInput1.addEventListener('input', calculateDateDifference); // Evento para calcular la diferencia
+
+      const dateInput2 = document.createElement("input");
+      dateInput2.type = "date";
+      dateInput2.id = `date2-${inputGroups.length + 1}`;
+      dateInput2.addEventListener('input', calculateDateDifference); // Evento para calcular la diferencia
+
+      inputGroup.appendChild(dateInput1);
+      inputGroup.appendChild(dateInput2);
+
+      // Input para mostrar la diferencia en días
+      const diffInput = document.createElement("input");
+      diffInput.type = "number";
+      diffInput.id = `diff-${inputGroups.length + 1}`;
+      diffInput.placeholder = "Días";
+      diffInput.disabled = true; // Desactivar el input para que no sea editable
+
+      inputGroup.appendChild(diffInput);
+
+      // Crear un checkbox para eliminar el grupo de inputs
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.id = `checkbox-${inputGroups.length}`; // Uno por cada bloque
+      inputGroup.appendChild(checkbox);
+
+      // Añadir el grupo de inputs al contenedor principal
+      document.getElementById('inputContainer').appendChild(inputGroup);
+
+      // Guardar el grupo de inputs y checkbox en el arreglo
+      inputGroups.push({ inputGroup, checkbox });
+
+      // Actualizar la suma
+      updateSum();
+    }
+
+    // Función para calcular la diferencia entre dos fechas
+    function calculateDateDifference() {
+      const groupIndex = this.id.split('-')[1] - 1; // Obtener el índice del grupo
+      const date1 = document.getElementById(`date1-${groupIndex + 1}`).value;
+      const date2 = document.getElementById(`date2-${groupIndex + 1}`).value;
+
+      if (date1 && date2) {
+        const diffInput = document.getElementById(`diff-${groupIndex + 1}`);
+        const startDate = new Date(date1);
+        const endDate = new Date(date2);
+        const timeDiff = endDate - startDate; // Diferencia en milisegundos
+        const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convertir a días
+
+        // Asegurarse de que la diferencia sume 1 día adicional
+        diffInput.value = Math.max(daysDiff + 1, 1); // Mínimo 1 día
+      } else {
+        document.getElementById(`diff-${groupIndex + 1}`).value = ''; // Limpiar si no hay ambas fechas
+      }
+    }
+
+    // Función para eliminar inputs seleccionados
+    function removeSelectedInputs() {
+      const inputContainer = document.getElementById('inputContainer');
+      
+      // Filtrar los grupos para mantener solo los que no están seleccionados
+      const newInputGroups = inputGroups.filter(item => {
+        const isChecked = item.checkbox.checked;
+        if (isChecked) {
+          // Si el checkbox está marcado, eliminar el grupo del DOM
+          inputContainer.removeChild(item.inputGroup);
+          return false; // No mantener este grupo
+        }
+        return true; // Mantener este grupo
+      });
+
+      inputGroups = newInputGroups; // Actualizar el arreglo de grupos
+
+      // Actualizar la suma después de eliminar
+      updateSum();
+    }
+
+    // Función para actualizar la suma total y calcular el 15%
+    function updateSum() {
+      let total = 0;
+
+      // Sumar todos los valores de los inputs
+      inputGroups.forEach((item, index) => {
+        const inputs = item.inputGroup.querySelectorAll('input[type="number"]');
+        inputs.forEach((input, inputIndex) => {
+          const value = parseFloat(input.value) || 0; // Obtener el valor del input
+          
+          // Sumar solo si no es el último input del bloque
+          if (inputIndex < 3) {
+            total += value; // Sumar el valor
+          } else {
+            total -= value; // Restar el último input del bloque
+          }
+        });
+      });
+
+      // Mostrar el resultado en el label con dos decimales
+      document.getElementById('resultLabel').innerText = `Total: ${total.toFixed(2)}`;
+
+      // Calcular el 15% del total
+      const percent15 = total * 0.15;
+
+      // Mostrar el 15% en el label con dos decimales
+      document.getElementById('percentLabel').innerText = `15% del Total: ${percent15.toFixed(2)}`;
+
+      // Calcular el total + 15%
+      const finalTotal = total + percent15;
+
+      // Mostrar el total + 15% en el label con dos decimales
+      document.getElementById('finalLabel').innerText = `Total + 15%: ${finalTotal.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
+

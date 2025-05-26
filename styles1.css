@@ -1,0 +1,512 @@
+body {
+    width: 210mm; /* Ancho estándar de una página A4 */
+    height: 297mm; /* Alto estándar de una página A4 */
+    margin: 0; /* Para asegurar que el contenido ocupe toda la página */
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.opciones {
+	border-radius: 15px;
+    	text-align: center;
+    	height: 30px;
+	width: 400px;
+}
+.opciones:hover{
+  background-color: rgb(224, 247, 242);
+}
+.respuesta {
+	border-radius: 15px;
+    	text-align: center;
+    	height: 30px;
+	width: 100px;
+}
+
+.informacion {
+    background-color: #f9f9f9; 
+    padding-top: 5px;    
+    padding-bottom: 5px; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    /*border-radius: 15px;*/
+    display: flex;
+    justify-content: center;
+}
+.info {
+    border-radius: 15px;
+    text-align: center;
+    height: 30px;
+}
+
+.solicitud2 {
+    border-radius: 15px;
+    text-align: left;
+    height: 30px;
+    width: 275px;
+}
+.solicitud2:hover{
+  background-color: rgb(224, 247, 242);
+}
+.proyecto {
+    border-radius: 15px;
+    text-align: center;
+    height: 30px;
+    width: 350px;
+}
+.empresa {
+    border-radius: 15px;
+    text-align: left;
+    height: 30px;
+    width: 275px;
+}
+.empresa:hover{
+  background-color: rgb(224, 247, 242);
+}
+
+.persona {
+    border-radius: 15px;
+    text-align: center;
+    height: 30px;
+    width: 505px;
+}
+.persona:hover{
+  background-color: rgb(224, 247, 242);
+}
+.btn-imprimir:hover {
+    background-color: #0ee7e7;
+   }
+.btn-imprimir {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color de fondo */
+    color: white;              /* Color del texto */
+    border: none;              /* Sin borde */
+    border-radius: 5px;        /* Bordes redondeados */
+    cursor: pointer;           /* Cambia el cursor a mano */
+    font-size: 16px;           /* Tamaño del texto */
+    transition: background-color 0.3s ease; /* Animación suave al pasar el ratón */
+    margin: 20px;
+  }
+.puesto {
+    background-color: #f9f9f9;
+    padding-top: 5px;    
+    padding-bottom: 5px; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    /*border-radius: 15px;*/
+    display: flex;
+    justify-content: center;
+}
+  .date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+    height: 30px;
+  }
+
+  .date-container label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 250px; /* Ancho ajustable */
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="date"]:focus {
+    border-color: #4CAF50; /* Color del borde al enfocar */
+    outline: none; /* Elimina el borde azul predeterminado */
+  }
+  .tiempo {
+    border-radius: 15px;
+    text-align: left;
+    height: 30px;
+  }
+  .tiempo:hover{
+    background-color: rgb(224, 247, 242);
+  }
+  .tipopuesto {
+    border-radius: 15px;
+    text-align: left;
+    height: 30px;
+    width: 250px;
+}
+.tipopuesto:hover{
+  background-color: rgb(224, 247, 242);
+}
+.clasepuesto {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 275px;
+}
+.clasepuesto:hover{
+  background-color: rgb(224, 247, 242);
+}
+.cargo {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 275px;
+}
+.cargo:hover{
+  background-color: rgb(224, 247, 242);
+}
+.ubicacion {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 275px;
+}
+.ubicacion:hover{
+  background-color: rgb(224, 247, 242);
+}
+.empreseg {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 278px;
+}
+.empreseg:hover{
+  background-color: rgb(224, 247, 242);
+}
+.date{
+  margin-left: 250px;
+}
+.date:hover{
+  background-color: rgb(224, 247, 242);
+}
+/* Estilo del rectángulo exterior */
+.rectangulo-externo {
+  width: 95%;
+  height: 150px;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;     /* Centra el contenido verticalmente */
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.rectangulo1 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 200px; /* Ancho de cuadrado */
+  height: 150px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 0px; /* Ajusta según la posición vertical */
+  left: 20px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+  text-align: center;
+}
+img {
+  max-width: 100%; /* La imagen no se hará más grande que el contenedor */
+  max-height: auto;
+  margin-top: 20px;
+}
+#imagen {
+  max-width: 85%; 
+  max-height: 85%;
+  margin-top: 10px;
+}
+.rectangulo2 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 350px; /* Ancho de cuadrado */
+  height: 75px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 0px; /* Ajusta según la posición vertical */
+  left: 220px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+  /*font-family: Tahoma, sans-serif; /* Tipo de letra Tahoma */
+  /*font-size: 11px; /* Tamaño de fuente 11 píxeles */
+}
+.rectangulo3 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 350px; /* Ancho de cuadrado */
+  height: 75px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 75px; /* Ajusta según la posición vertical */
+  left: 220px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo4 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 90px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 0px; /* Ajusta según la posición vertical */
+  left: 570px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo5 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 90px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 37.5px; /* Ajusta según la posición vertical */
+  left: 570px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo6 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 90px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 75px; /* Ajusta según la posición vertical */
+  left: 570px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo7 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 90px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 112.5px; /* Ajusta según la posición vertical */
+  left: 570px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo8 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 113.5px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 0px; /* Ajusta según la posición vertical */
+  left: 660px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo9 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 113.5px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 37.5px; /* Ajusta según la posición vertical */
+  left: 660px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo10 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 113.5px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 75px; /* Ajusta según la posición vertical */
+  left: 660px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.rectangulo11 {
+  position: absolute; /* O puedes usar fixed si quieres que se mantenga en esa posición al hacer scroll */
+  width: 113.5px; /* Ancho de cuadrado */
+  height: 37.5px; /* Alto de cuadrado */
+  background-color: rgb(255, 255, 255); /* Color de relleno */
+  top: 112.5px; /* Ajusta según la posición vertical */
+  left: 660px; /* Ajusta según la posición horizontal */
+  border: 1px solid #ccc; /* Color de bordes */
+}
+.justificacion {
+  background-color: #f9f9f9;
+  padding-top: 5px;    
+  padding-bottom: 5px; 
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  /*border-radius: 15px;*/
+  display: flex;
+  justify-content: center;
+}
+.lugar {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 425px;
+  margin: 20px;
+}
+.lugar:hover{
+  background-color: rgb(224, 247, 242);
+}
+.lugar1{
+  margin: 20px;
+}
+.comentarios{
+  margin-left: 20px;
+}
+.justifi {
+  border-radius: 15px;
+  margin-left: 20px;
+  resize: none;
+}
+.justifi:hover{
+  background-color: rgb(224, 247, 242);
+}
+.infopuesto {
+  background-color: #f9f9f9;
+  padding-top: 5px;    
+  padding-bottom: 5px; 
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  /*border-radius: 15px;*/
+  display: flex;
+  justify-content: center;
+}
+.cod {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+}
+.cod:hover{
+  background-color: rgb(224, 247, 242);
+}
+.cod2 {
+  border-radius: 15px;
+  text-align: left;
+  height: 30px;
+  width: 325px;
+}
+.cod2:hover{
+  background-color: rgb(224, 247, 242);
+}
+.contenedor {
+  display: flex; /* Alinear los cuadrados en fila */
+  justify-content: space-between; /* Espacio entre los cuadrados */
+  gap: 20px; /* Espacio entre los cuadrados */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#nombre1.responsables:hover {
+  background-color: rgb(224, 247, 242);
+}
+#nombre2.responsables:hover{
+  background-color: rgb(224, 247, 242);
+}
+
+.cuadrado {
+  width: 150px;
+  height: 180px;
+  background-color: rgb(252, 252, 252);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  /*border-radius: 15px;*/ 
+}
+
+.responsables {
+  width: 100%;  /* El textarea ocupa todo el ancho del cuadrado */
+  height: 40px; /* El textarea ocupa todo el alto del cuadrado */
+  resize: none; /* Eliminar la posibilidad de redimensionar el textarea */
+  margin-top: 150px;
+  text-align: center;
+}
+.firmas23 {
+  display: flex; /* Alinear los cuadrados en fila */
+  justify-content: space-between; /* Espacio entre las palabras */
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.contenedor22 {
+  display: flex; /* Alinear los cuadrados en fila */
+  justify-content: space-between; /* Espacio entre los cuadrados */
+  gap: 20px; /* Espacio entre los cuadrados */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cuadrado22 {
+  width: 150px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.responsables22 {
+  width: 100%;  /* El textarea ocupa todo el ancho del cuadrado */
+  height: 20px; /* El textarea ocupa todo el alto del cuadrado */
+  resize: none; /* Eliminar la posibilidad de redimensionar el textarea */
+  margin-top: 0px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 15px; 
+}
+.contenedor30 {
+  display: flex; /* Alinear los cuadrados en fila */
+  justify-content: space-between; /* Espacio entre los cuadrados */
+  gap: 20px; /* Espacio entre los cuadrados */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cuadrado30 {
+  width: 150px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.responsables30 {
+  width: 100%;  /* El textarea ocupa todo el ancho del cuadrado */
+  height: 30px; /* El textarea ocupa todo el alto del cuadrado */
+  resize: none; /* Eliminar la posibilidad de redimensionar el textarea */
+  margin-top: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  /*border-radius: 15px; */
+}
+.rect4 {
+  text-align: center; /* Centrado horizontal */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect5 {
+  text-align: center; /* Centrado horizontal */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect6 {
+  text-align: center; /* Centrado horizontal */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect7 {
+  text-align: center; /* Centrado horizontal */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect8 {
+  text-align: left; /* Centrado horizontal */
+  margin-left: 5px; /* Mueve el texto 50px hacia abajo */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect9 {
+  text-align: left; /* Centrado horizontal */
+  margin-left: 5px; /* Mueve el texto 50px hacia abajo */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect10 {
+  text-align: left; /* Centrado horizontal */
+  margin-left: 5px; /* Mueve el texto 50px hacia abajo */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
+.rect11 {
+  text-align: left; /* Centrado horizontal */
+  margin-left: 5px; /* Mueve el texto 50px hacia abajo */
+  margin-top: 10px; /* Mueve el texto 50px hacia abajo */
+}
