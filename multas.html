@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Dinámico</title>
+    <link rel="stylesheet" href="multas.css">
+
+   <!-- Incluir Flatpickr CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+   <style>
+    /* Centramos el input de fecha */
+    .date-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .flatpickr-alt {
+        width: 350px; /* Ancho más grande */
+        padding: 12px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+
+</head>
+<body>
+    <div id="titulo"><h1>Formato de Multas Empresas de Seguridad</h1></div> <!-- Cierre correcto del div -->
+    <div id="authorSignature">Desarrollado por:<br>Ing. Christian Chávez</div>
+    <!-- Fecha principal -->
+     <!-- Contenedor del input de fecha -->
+     <div class="date-container">
+      <input type="text" id="date-input" placeholder="Fecha elaboración del documento">
+  </div>
+
+  <!-- Incluir Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // Configuración de Flatpickr
+          flatpickr("#date-input", {
+              dateFormat: "l, d \\de F \\de Y", // Formato personalizado
+              locale: {
+                  firstDayOfWeek: 1, // Empieza la semana el lunes
+                  weekdays: {
+                      shorthand: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+                      longhand: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+                  },
+                  months: {
+                      shorthand: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+                      longhand: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+                  }
+              },
+              defaultDate: new Date(), // Establece la fecha actual como predeterminada
+              altInput: true, // Muestra el input formateado
+              altFormat: "l, d \\de F \\de Y", // Formato personalizado en el input visible
+              allowInput: true, // Permite que el usuario escriba la fecha manualmente
+              altInputClass: "flatpickr-alt" // Clase personalizada para dar estilo al input alternativo
+          });
+      });
+  </script>
+
+    <div class="enunciados">
+        <div class="item">Item</div>
+        <div class="empresa">Empresa</div>
+        <div class="codigo">Código</div>
+        <div class="ubicacion">Ubicación</div>
+        <div class="persona">Nombre<br>Guardia</div>
+        <div class="fecha">Fecha</div>
+        <div class="opcion">Opcion<br>Multa</div>
+        <div class="valor">Valor</div>
+    </div>
+
+    <div id="element-container"></div>
+    
+    <div class="botones">
+    <button id="add-block-btn">Agregar</button>
+    <button id="delete-checked-btn">Eliminar</button>
+    <button id="select-all-btn">
+        <input type="checkbox" /> Seleccionar Todos
+    </button>
+    <button id="print-btn">Imprimir</button>
+    </div>
+    
+    <br><br>
+    <label id="total-label">Total Multas: 0</label>
+
+    <script src="multas.js"></script>
+</body>
+</html>

@@ -24,6 +24,15 @@ h1 {
     border-color: #3498db; /* Color del borde (azul) */
 }
 
+/*AUTOR*/
+#authorSignature {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 9px; /* Aumenta el tamaño del texto */
+    color: #b8b5b5; /* Color del texto */
+}
+
 /* ICONOS DE EMPRESAS */
 
 .iconos_empresas{ 

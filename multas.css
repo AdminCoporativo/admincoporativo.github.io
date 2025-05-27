@@ -1,0 +1,175 @@
+body {
+    width: 350mm; /* Ancho de A4 en formato horizontal */
+    height: 210mm; /* Alto de A4 en formato horizontal */
+    margin: 0 auto; /* Centrar la página */
+    padding: 20mm; /* Márgenes internos */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#authorSignature {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 9px; /* Aumenta el tamaño del texto */
+    color: #b8b5b5; /* Color del texto */
+}
+
+.enunciados {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    align-items: center; 
+}
+
+#titulo {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.block {
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    font-size: 10px; /* Ajusta el tamaño de la letra aquí */
+}
+
+.item {
+    margin-left: 5px;
+}
+
+.empresa {
+    margin-left: -40px;
+}
+.codigo {
+    margin-left: -60px;
+}
+.ubicacion{
+    margin-left: -80px;
+}
+
+.valor {
+    margin-right: 5px;
+}
+
+/* Ancho fijo para el label que se enumera automaticamente*/
+.block label {
+    width: 30px; /* Ajusta el ancho según sea necesario */
+    display: inline-block; /* Asegura que el ancho fijo se aplique */
+    text-align: center; /* Opcional: centra el texto dentro del label */
+}
+
+.custom-select {
+    position: relative;
+    width: 200px; /* Ajusta según sea necesario */
+}
+
+.selected-option {
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.options {
+    display: none;
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.custom-select .options {
+    display: none;
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+    max-height: 200px; /* Limitar la altura */
+    overflow-y: auto;  /* Habilitar el scroll vertical */
+}
+
+
+input[type="datetime-local"] {
+    width: 250px; /* Ajusta el ancho */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-text-1 {
+    width: 60px; /* Define el ancho a 60px */
+}
+
+.custom-select {
+    position: relative;
+    width: 400px; /* Doble del ancho original */
+}
+
+.options div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.options div:hover {
+    background-color: #f1f1f1;
+}
+
+.custom-select.show .options {
+    display: block;
+}
+/* Ubicación botones*/
+
+.botones{
+    margin-top: 10px; /*margen superior botones*/
+}
+
+/* Estilo de botones */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/*Estilos Titulos*/
+
+
+
+/* Estilo de impresión */
+@media print {
+    body {
+        width: 350mm;
+        height: 210mm;
+    }
+    
+    button {
+        display: none; /* Oculta los botones en la impresión */
+    }
+}

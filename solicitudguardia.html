@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>SOLICITUD SERVICIO DE SEGURIDAD FISICA</title>
+   	<link rel="stylesheet" href="styles1.css">
+</head>
+	<body>
+		<div id="authorSignature">Desarrollado por:<br>Ing. Christian Chávez</div>
+		<div class="rectangulo-externo">
+			<div class="rectangulo1">
+				<img id="imagen" src="subirimagen.png" alt="Imagen seleccionada">
+			</div>
+			<div class="rectangulo2">
+				<label class="rect2"><CENTER><h3>SERVICIOS ADMINISTRATIVOS <br> FORMULARIO</h3></CENTER></label>
+			</div>
+			<div class="rectangulo3">
+				<label class="rect3"><CENTER><h3>REQUERIMIENTO <br> PUESTOS DE VIGILANCIA</h3></CENTER></label>
+			</div>
+			<div class="rectangulo4">
+				<div class="rect4">Código : </div>
+			</div>
+			<div class="rectangulo5">
+				<div class="rect5">Versión : </div>
+			</div>
+			<div class="rectangulo6">
+				<div class="rect6">Fecha : </div>
+			</div>
+			<div class="rectangulo7">
+				<div class="rect7">Página : </div>
+			</div>
+			<div class="rectangulo8">
+				<div class="rect8">FO-160-01</div>
+			</div>
+			<div class="rectangulo9">
+				<div class="rect9">05</div>
+			</div>
+			<div class="rectangulo10">
+				<div class="rect10">21/09/2024</div>
+			</div>
+			<div class="rectangulo11">
+				<div class="rect11">1 de 1</div>
+			</div>
+		</div>
+		<section class="informacion">
+			<form>
+			<!-- Lista desplegable -->
+  <label for="opciones">Proyecto :</label>
+  <select id="opciones" class="opciones">
+    	<option value="">--Selecciona una opción--</option>
+    	<option value="21">MANTENIMIENTO PERIÓDICO 1N</option>
+    	<option value="21">MANTENIMIENTO PERIÓDICO 2N</option>
+		<option value="615">TABABELA-CUSUBAMBA</option>
+    	<option value="83">CENTROS DE PRODUCCION</option>
+		<option value="96">PLANTA DE EMULSION</option>
+		<option value="67">REDONDEL SELVA ALEGRE</option>
+		<option value="PI127">PIURA - PROYECTO PI127</option>
+		<option value="20">PANA SUR</option>
+		<option value="557">PUENTE GALA</option>
+		<option value="905">NARANJAL-TENGUEL</option>
+		<option value="42">PROPIEDADES</option>
+		<option value="79">MINA COLIBRI</option>
+  </select>
+
+  <!-- Campo de entrada donde aparecerá la respuesta -->
+  <label for="respuesta">Respuesta seleccionada:</label>
+  <input class="respuesta" type="text" id="respuesta" readonly>
+
+  			<br>
+			<br>
+			<label for="persona">Persona que solicita el servicio :</label>
+			<input class="persona" placeholder="Nombre y Apellido"></input>
+			<br>
+			<br>
+				<label class="empresa" for="empresa">Contratante :</label>
+				<select id="empresa" name="empresa" class="empresa" required>
+					<option class="emp1" value="subirimagen.png">--Selecciona una Empresa--</option>
+					<option class="emp1" value="logo-sudinco.png">SUDINCO</option>
+					<option class="emp1" value="logo-panavial.png">PANAVIAL</option>
+					<option class="emp1" value="logo-intervias.png">INTERVIAS</option>
+					<option class="emp1" value="logo-inestrucsur.png">INESTRUCSUR</option>
+					<option class="emp1" value="logo-alfavial.png">ALFAVIAL</option>
+					<option class="emp1" value="logo-elcordobes.png">EL CORDOBES</option>
+					<option class="emp1" value="logo-sudinco-peru.png">SUDINCO SUC. PERÚ</option>
+				</select>
+				<label class="solicitud1" for="solicitud">Solicitud :</label>
+				<select id="solicitud" name="solicitud" class="solicitud2">
+					<option class="sol1" value="">--Selecciona una opción--</option>
+					<option class="sol1" value="incremento">INCREMENTO</option>
+					<option class="sol1" value="suspension">SUSPENSION</option>
+					<option class="sol1" value="modificacion">MODIFICACION</option>
+					<option class="sol1" value="reactivacion">REACTIVACION</option>
+				</select>
+			</form>
+		</section>
+
+		<section class="puesto">
+			<form>
+				<label class="puesto1" for="puesto1">Puesto de Vigilancia :</label>
+				<select id="tipopuesto" name="tipopuesto" class="tipopuesto">
+					<option class="tip1" value="">--Selecciona una opción--</option>
+					<option class="tip1" value="fijo">FIJO</option>
+					<option class="tip1" value="temporal">TEMPORAL</option>
+				</select>
+				<label for="tiempo">Tiempo del servicio :</label>
+				<input class="tiempo" placeholder="días , meses o años"></input>
+				<br>
+				<br>	
+				<label class="clasepuesto1" for="puesto1">Tipo de puesto :</label>
+				<select id="clasepuesto" name="clasepuesto" class="clasepuesto">
+					<option class="clas1" value="">--Selecciona una opción--</option>
+					<option class="clas1" value="24h">24H</option>
+					<option class="clas1" value="12hd">12HD L-D</option>
+					<option class="clas1" value="12hn">12HN L-D</option>
+					<option class="clas1" value="12hn">12HN L-V y 24H S,D Y F</option>
+					<option class="clas1" value="24h">24H MOTORIZADO</option>
+					<option class="clas1" value="24h">24H PATRULLA</option>
+					<option class="clas1" value="24h">12HN L-D MOTORIZADO</option>
+					<option class="clas1" value="24h">12HD L-D MOTORIZADO</option>
+					<option class="clas1" value="24h">12HN L-V + 24H S,D Y F + MOTORIZADO</option>
+				</select>
+				<label class="cargo1" for="cargo1">Cargo :</label>
+				<select id="cargo" name="cargo" class="cargo">
+					<option class="car" value="">--Selecciona una opción--</option>
+					<option class="car" value="guardia">GUARDIA</option>
+					<option class="car" value="motorizado">MOTORIZADO</option>
+					<option class="car" value="patrulla">PATRULLA</option>
+				</select> 
+				<br>
+				<br>
+				<label class="empreseg1" for="cargo1">Empresa :</label>
+				<select id="empreseg" name="empreseg" class="empreseg">
+					<option class="seg1" value="">--Selecciona una opción--</option>
+					<option class="seg1" value="laar">LAAR</option>
+					<option class="seg1" value="jaraseguridad">JARASEGURIDAD</option>
+					<option class="seg1" value="securitas">SECURITAS</option>
+					<option class="seg1" value="invin">INVIN</option>
+					<option class="seg1" value="oceansecurity">OCEANSECURITY</option>
+					<option class="seg1" value="prosegur">PROSEGUR</option>
+				</select> 
+				<label for="ubicacion1">Ubicación :</label>
+				<input class="ubicacion" placeholder="Lugar donde se instala el puesto"></input>
+				  <div class="date-container">
+					<label>Fecha de inicio / fin del servicio :</label><input class="date" type="date" id="fecha" name="fecha">
+				  </div>	
+				  <br>			
+			</form>
+		</section>
+
+		<section class="justificacion">
+			<form>
+				<label class="lugar1" for="lugar1">Lugar donde se genera el pedido :</label>
+				<input class="lugar" placeholder="Campamento donde se genera el pedido"></input>
+				<label class="comentarios" for="comentarios">Justificativo del Requerimiento :</label><br>
+				<textarea class="justifi" id="comentarios" name="comentarios" rows="4" cols="95">
+				</textarea>
+			  </form>
+		</section>
+
+		<section class="infopuesto">
+			<div>
+				<label class="cod1" for="denominativo">Denominativo :</label>
+				<input class="cod2" placeholder="Nombre del puesto"></input>
+				<label class="cod1" for="codificacion">Código :</label>
+				<input class="cod" placeholder="Codigo del puesto"></input>				
+			</div>		
+		</section>
+
+		<div class="contenedor22">
+			<div class="cuadrado22">
+				<textarea class="responsables22" placeholder="Solicita" readonly></textarea>
+			  </div>
+			  <div class="cuadrado22">
+				<textarea class="responsables22" placeholder="Gestiona" readonly></textarea>
+			  </div>
+			  <div class="cuadrado22">
+				<textarea class="responsables22" placeholder="Revisa" readonly></textarea>
+			  </div>
+			  <div class="cuadrado22">
+				<textarea class="responsables22" placeholder="Autoriza" readonly></textarea>
+			  </div>
+		  </div>
+
+		<div class="contenedor">
+			<div class="cuadrado">
+			  <textarea class="responsables" placeholder="Nombre" id="nombre1"></textarea>
+			</div>
+			<div class="cuadrado">
+			  <textarea class="responsables" placeholder="Nombre" id="nombre2"></textarea>
+			</div>
+			<div class="cuadrado">
+			  <textarea class="responsables" placeholder="Ing. Christian Chávez" readonly></textarea>
+			</div>
+			<div class="cuadrado">
+			  <textarea class="responsables" placeholder="Ing. Javier Freire" readonly></textarea>
+			</div>
+		  </div>
+
+		  <div class="contenedor30">
+			<div class="cuadrado30">
+				<textarea class="responsables30" placeholder="Superintendente" readonly></textarea>
+			  </div>
+			  <div class="cuadrado30">
+				<textarea class="responsables30" placeholder="Administrador" readonly></textarea>
+			  </div>
+			  <div class="cuadrado30">
+				<textarea class="responsables30" placeholder="Asistente Administrativo" readonly></textarea>
+			  </div>
+			  <div class="cuadrado30">
+				<textarea class="responsables30" placeholder="Vicepresidente Ejecutivo" readonly></textarea>
+			  </div>
+		  </div>
+
+		<button class="btn-imprimir" onclick="window.print()">Imprimir página</button>
+ <script src="solicitudguardias.js"></script>  
+	</body>
+</html>

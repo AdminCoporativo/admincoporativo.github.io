@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes Semanales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles_semanal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+<center><h2>REPORTE SEMANAL DE ACTIVIDADES</h2></center>
+<center><h3>DIRECCIÓN ADMINISTRATIVA</h3></center>
+<div id="authorSignature">Desarrollado por:<br>Ing. Christian Chávez<br>Version: 1.0.0</div>
+<div>
+    <img src="Grupo Sudinco.png" class="logo-gruposudinco">
+</div>
+<div class="fecha1">
+    <input type="text" id="nombre" placeholder="Ingresar el nombre">
+    <input type="text" id="fechaActual" placeholder="Selecciona una fecha"> <!-- Flatpickr usará este input -->
+</div>
+
+
+<div id="contenedor1">
+	<div class="titulos">
+		<label class="item">Item</label>
+		<label class="tareas">Tareas</label>
+		<label class="porc">%</label>
+		<label class="prog">Progreso</label>
+        <label class="dplazo">Plazo <br> (Días)</label>
+		<label class="finic">F.Inicial</label>
+		<label class="ffina">F.Final</label>
+		<label class="observ1">Observaciones</label>
+	</div>
+</div>
+    
+
+    
+    <div id="blocksContainer"></div>
+    <button id="addBlockButton" onclick="addBlock()">Añadir</button>
+    <button id="btn-delete" onclick="deleteSelectedBlocks()">Eliminar</button>
+    <button id="btn-print" onclick="printPage()">Imprimir</button> <!-- Botón de imprimir -->
+    <button id="toggleLock" onclick="toggleLock()">Bloquear/Desbloquear</button>
+    <button id="btn-selectall" onclick="toggleSelectAll()">Seleccionar Todos</button>
+    <button id="addTitleButton" onclick="addTitle()">Agregar Título</button>
+
+
+    <script src="script_semanal.js"></script>
+
+</body>
+</html>

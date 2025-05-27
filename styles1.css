@@ -22,6 +22,15 @@ body {
 	width: 100px;
 }
 
+/*Autor*/
+#authorSignature {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 9px; /* Aumenta el tamaño del texto */
+    color: #b8b5b5; /* Color del texto */
+}
+
 .informacion {
     background-color: #f9f9f9; 
     padding-top: 5px;    
@@ -510,3 +519,94 @@ img {
   margin-left: 5px; /* Mueve el texto 50px hacia abajo */
   margin-top: 10px; /* Mueve el texto 50px hacia abajo */
 }
+
+/*RESPONSIVO PARA MOBILES*/
+/* Estilos responsivos */
+/*
+@media (max-width: 1024px) {
+  .rectangulo-externo {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    position: relative;
+  }
+
+  .rectangulo1,
+  .rectangulo2,
+  .rectangulo3,
+  .rectangulo4,
+  .rectangulo5,
+  .rectangulo6,
+  .rectangulo7,
+  .rectangulo8,
+  .rectangulo9,
+  .rectangulo10,
+  .rectangulo11 {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .informacion,
+  .puesto,
+  .justificacion,
+  .infopuesto {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .contenedor,
+  .contenedor22,
+  .contenedor30 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cuadrado,
+  .cuadrado22,
+  .cuadrado30 {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  .responsables,
+  .responsables22,
+  .responsables30 {
+    width: 100%;
+  }
+
+  .opciones,
+  .persona,
+  .empresa,
+  .solicitud2,
+  .tipopuesto,
+  .tiempo,
+  .clasepuesto,
+  .cargo,
+  .ubicacion,
+  .empreseg,
+  .cod,
+  .cod2,
+  .lugar,
+  .justifi {
+    width: 100%;
+  }
+
+  .btn-imprimir {
+    width: 90%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .date-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .date {
+    width: 100%;
+    margin-left: 0;
+  }
+}*/

@@ -1,0 +1,412 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    border: 1px solid #ddd;
+    padding: 0px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease; /* Transición suave durante el arrastre */
+}
+
+.logo-gruposudinco {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 20px; /* Ajusta la distancia desde la derecha */
+    width: 200px;
+    height: auto;
+}
+
+#authorSignature {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 9px; /* Aumenta el tamaño del texto */
+    /*font-weight: bold; /* Hace el texto más grueso */
+    color: #e3e0e0a2; /* Color del texto */
+}
+
+label {
+    width: 20px; /* Asegura que el label tenga un ancho fijo */
+    text-align: center; /* Alinea el texto del número a la derecha */
+    margin-left: 5px;
+    display: inline-block; /* Asegura que se comporte como un bloque pero en línea */
+    font-size: 11px;
+}
+
+input[type="checkbox"]:hover {
+    border: 2px solid #00f; /* Cambia el color del borde al hacer hover */
+    background-color: #f0f0f0; /* Cambia el color de fondo al hacer hover */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+.fecha1{
+    display: flex;
+    justify-content: space-between; /* Espacio entre los inputs */
+    align-items: center; /* Alinear verticalmente al centro si es necesario */
+    position: relative; /* Necesario para el posicionamiento del segundo input */
+    margin-bottom: 10px;
+}
+
+#nombre {
+    flex: 0 1 auto; 
+    width: 250px;
+    padding: 5px;
+}
+#text-title {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+input:hover {
+    background-color: rgb(190, 233, 241);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+textarea:hover {
+    background-color: rgb(190, 233, 241);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#btn-print {
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+#btn-print:hover{
+    background-color: rgb(216, 100, 210);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#addBlockButton{
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+#addBlockButton:hover {
+    background-color: rgb(44, 240, 51);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#btn-delete {
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+#btn-delete:hover {
+    background-color: rgb(236, 47, 9);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#toggleLock {
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+#toggleLock:hover {
+    background-color: rgb(216, 166, 14);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#btn-selectall {
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+#btn-selectall:hover {
+    background-color: rgb(42, 170, 230);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#addTitleButton {
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 5px 10px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+#addTitleButton:hover{
+    background-color: rgb(243, 239, 47);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+} 
+
+#btn-delete-title{
+    border: 3px solid #939191; /* 5px de grosor, estilo sólido, color negro */
+    padding: 2px 5px; /* Añadir algo de relleno interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */ 
+}
+#btn-delete-title:hover{
+    background-color: rgb(236, 47, 9);
+    border: 3px solid #6a6868;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Añadir sombra */
+}
+
+#fechaActual{
+    position: absolute; /* Posicionar el input en el centro del contenedor */
+    left: 50%; /* Posición izquierda del contenedor */
+    transform: translateX(-50%); /* Centrar en la posición */
+    text-align: center;
+    width: 250px;
+    padding: 5px;
+}
+
+.titulos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease;
+    font-weight: bold;
+}
+
+.item{
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.tareas{
+    margin-left: 135px;
+    font-size: 14px;
+}
+
+.provee{
+    margin-left: 115px;
+    font-size: 14px;
+}
+
+.porc{
+    margin-left: 133px;
+    font-size: 14px;
+}
+
+.prog{
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+.finic{
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.ffina{
+    margin-left: 55px;
+    font-size: 14px;
+}
+
+.dplazo{
+    margin-left: 60px;
+    font-size: 14px;
+}
+
+.observ1{
+    margin-left: 200px;
+    font-size: 14px;
+}
+
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    width: 265px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+textarea[placeholder="Tarea"] {
+    width: 250px; /* Modifica el ancho del textarea Tarea */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+textarea[placeholder="Observaciones"] {
+    width: 411px; /* Modifica el ancho del textarea observaciones */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"], progress {
+    width: 100px;
+    /*font-size: 11px;*/
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+input[type="date"] {
+    width: 70px; /* Ajusta el ancho de los inputs tipo fecha */
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    text-align: center;
+    margin-left: 0px;
+}
+
+
+input[type="number"][placeholder="Porcentaje"] {
+    width: 40px; /* Ancho específico para el input de porcentaje */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+input[type="number"].percentage-input {
+    width: 40px; /* Ajusta el ancho según sea necesario */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+input.percentage-input {
+    width: 30px; /* Ancho específico para el input de porcentaje */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+progress {
+    width: 100px; /* Ancho definido previamente */
+    height: 20px; /* Ajusta la altura según lo que necesites */
+}
+
+
+input.difference {
+    width: 30px; /* Ancho consistente para todos los inputs de diferencia de fechas */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+button {
+    margin: 10px 0;
+}
+
+#dias{
+    width: 50px;
+}
+
+.locked {
+    cursor: not-allowed;
+}
+
+@media print {
+    /* Definir tamaño de la hoja A4 en horizontal */
+    @page {
+        size: A4 landscape; /* A4 en orientación horizontal */
+        margin: 10mm; /* Definir márgenes (puedes ajustarlos si es necesario) */
+    }
+
+    /* Ajustes para ocultar elementos innecesarios en la impresión */
+    body {
+        width: 297mm; /* Ancho de A4 horizontal */
+        height: 210mm; /* Alto de A4 horizontal */
+    }
+
+    /* Evitar la ruptura de elementos */
+    .container {
+        page-break-inside: avoid; /* Evita que el bloque se corte entre páginas */
+        break-inside: avoid;      /* Para compatibilidad con navegadores más recientes */
+    }
+
+    .container.locked {
+        background-color: #e6e6e6 !important; /* Color aún más claro al imprimir */
+        color: #0d0d0d !important; /* Texto más claro al imprimir */
+    }
+
+    /* Ocultar botones y otros elementos no deseados en la impresión */
+    button {
+        display: none;
+    }
+
+}
+
+/* Añadir transición suave al arrastrar */
+.container.dragging {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el bloque arrastrado */
+    opacity: 0.8;
+    transform: scale(1.02); /* Pequeña ampliación durante el arrastre */
+}
+
+/* Eliminar el borde punteado */
+.container.over {
+    border: none; /* Eliminamos el borde punteado */
+    background-color: #f0f8ff; /* Puedes mantener o ajustar el color de fondo si es necesario */
+}
+
+
+/* Campos con error (sombra roja) */
+input.error, textarea.error {
+    border: 1px solid red;
+    box-shadow: 0 0 5px red;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Tooltip de error */
+.tooltip-error {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-error .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Posiciona el tooltip arriba del campo */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-error:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Animación para que los bloques aparezcan suavemente */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Estilos generales de bloqueos */
+.container.locked {
+    background-color: #f0f0f0; /* Color más claro para bloque bloqueado */
+    color: #999; /* Texto más claro */
+}
+
