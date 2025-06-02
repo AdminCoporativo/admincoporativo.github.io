@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <option>JARASEGURIDAD</option>
             <option>INVIN</option>
             <option>OCEANSECURITY</option>
+            <option>PROSEGUR</option>
         `;
 
         // Crear los inputs de texto
