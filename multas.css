@@ -74,7 +74,7 @@ h1 {
 
 .custom-select {
     position: relative;
-    width: 400px; /* Ajusta según sea necesario */
+    width: 200px; /* Ajusta según sea necesario */
 }
 
 .selected-option {
@@ -82,34 +82,6 @@ h1 {
     padding: 10px;
     cursor: pointer;
     background-color: #f9f9f9;
-}
-
-.custom-select textarea.selected-option {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 10px;
-    line-height: 1.4;
-    background-color: #f9f9f9;
-    overflow: hidden;     /* 👈 Oculta scroll */
-    resize: none;         /* 👈 No redimensionable */
-    min-height: 38px;     /* Altura mínima */
-}
-
-.custom-select input.selected-option {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 10px;
-    min-height: 40px;
-    line-height: 1.4;
-    cursor: text;
-    background-color: #f9f9f9;
-    white-space: normal;
-    overflow-y: auto;
-    resize: none; /* Evita que el usuario redimensione */
 }
 
 .options {
@@ -201,5 +173,3 @@ button:hover {
         display: none; /* Oculta los botones en la impresión */
     }
 }
-
-
