@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <option>JARASEGURIDAD</option>
             <option>INVIN</option>
             <option>OCEANSECURITY</option>
-            <option>PROSEGUR</option>
         `;
 
         // Crear los inputs de texto
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         customSelect.classList.add('custom-select');
         customSelect.style.width = '400px';
         customSelect.innerHTML = `
-            <input type="text" class="selected-option" placeholder="Buscar y seleccionar..." autocomplete="off">
+            <textarea class="selected-option" placeholder="Escribe para buscar..."></textarea>
             <div class="options">
                 <div data-value="100">1) Guardia que no se presenta a su turno, o se reemplaze con otro guardia que este en el mismo proyecto, peaje o ubicación trabajando para la empresa.</div>
                 <div data-value="50">2) Abandonar el puesto de guardia. </div>
@@ -132,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div data-value="20">57) No cumplir con las disposiciones requeridas por la CONTRATANTE.</div>
                 <div data-value="10">58) Portar el chaleco antibalas con láminas de seguridad caducadas.</div>
             </div>
+
         `;
 
         // Crear el input de resultado dentro del bloque
@@ -144,31 +144,45 @@ document.addEventListener('DOMContentLoaded', () => {
         inputResultado.maxLength = '6'; // Limitar a 6 cifras
 
         // Lógica de selección para el select personalizado
-        const selectedOption = customSelect.querySelector('.selected-option');
-        const options = customSelect.querySelector('.options');
+const selectedOption = customSelect.querySelector('.selected-option');
+const options = customSelect.querySelector('.options');
 
-        selectedOption.addEventListener('input', () => {
+// Mostrar opciones al enfocar el input
+selectedOption.addEventListener('focus', () => {
+    customSelect.classList.add('show');
+    selectedOption.select();
+});
+
+// Buscar mientras se escribe
+selectedOption.addEventListener('input', () => {
     const filter = selectedOption.value.toLowerCase();
-    const allOptions = options.querySelectorAll('div[data-value]');
-    
+    const allOptions = options.querySelectorAll('div');
     allOptions.forEach(option => {
         const text = option.textContent.toLowerCase();
         option.style.display = text.includes(filter) ? 'block' : 'none';
     });
-
     customSelect.classList.add('show');
+    ajustarAltura(selectedOption);
 });
 
 options.addEventListener('click', (e) => {
     if (e.target.matches('[data-value]')) {
         selectedOption.value = e.target.textContent;
         customSelect.classList.remove('show');
-
+        ajustarAltura(selectedOption); // Ajustar al seleccionar
         const valorSeleccionado = parseFloat(e.target.getAttribute('data-value'));
         inputResultado.value = valorSeleccionado.toFixed(2);
         calculateTotal();
     }
 });
+
+
+/* Ajusta la altura del texto*/
+function ajustarAltura(elemento) {
+    elemento.style.height = 'auto'; // Resetear altura previa
+    elemento.style.height = (elemento.scrollHeight) + 'px'; // Ajustar a contenido
+}
+
 
         // Cerrar el select cuando se hace clic fuera de él
         document.addEventListener('click', function(event) {
