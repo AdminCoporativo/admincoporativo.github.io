@@ -1,0 +1,147 @@
+:root {
+    --border-color: #ddd;
+    --bg-header: #f2f2f2;
+    --report-width: 1050px;
+}
+
+body { font-family: Arial, sans-serif; margin: 0; padding: 10px; background-color: #f4f4f4; }
+
+.main-wrapper { width: 100%; overflow-x: auto; background: #fff; }
+
+.report-container {
+    min-width: var(--report-width);
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.header-top { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.logo-gruposudinco { width: 200px; }
+#authorSignature { font-size: 10px; color: #999; text-align: right; }
+.report-titles { text-align: center; margin-bottom: 20px; }
+
+.info-header { display: flex; justify-content: space-between; margin-bottom: 20px; padding-right: 40px; }
+.info-header input { border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; }
+#nombre { width: 400px; }
+#fechaActual { width: 350px; text-align: center; font-weight: bold; }
+
+/* Grid Tabla */
+.grid-row { display: grid; grid-template-columns: 45px 35px 300px 45px 120px 55px 100px 100px 1fr; border-bottom: 1px solid var(--border-color); }
+.header-row { background-color: var(--bg-header); font-weight: bold; text-align: center; border-top: 1px solid var(--border-color); }
+.grid-row > div { 
+    padding: 4px 5px; /* Antes era 10px 5px */
+    border-right: 1px solid var(--border-color); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+textarea, .grid-row input { 
+    border: none; 
+    width: 100%; 
+    background: transparent; 
+    font-size: 10px; /* Reducido de 11px a 10px */
+    resize: none; 
+    padding: 2px 0; /* Asegura que no haya espacio extra arriba/abajo */
+    line-height: 1.2;
+}
+
+.actions-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row; /* Fuerza la alineación en fila */
+    flex-wrap: nowrap;   /* Evita que se bajen en tablets */
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap; /* Evita que el texto del botón se rompa en dos líneas */
+    transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-pdf {
+    background-color: #e74c3c !important;
+    color: white !important;
+    border: none;
+}
+
+@media print {
+    .no-print, .actions-container, .blockCheckbox {
+        display: none !important;
+    }
+}
+/* ... (mantenemos el código anterior y agregamos esto) ... */
+
+.btn-pdf {
+    background-color: #e74c3c !important;
+    color: white !important;
+    border-color: #c0392b !important;
+    font-weight: bold;
+}
+
+.btn-pdf:hover {
+    background-color: #c0392b !important;
+}
+
+/* Asegurar que el fondo sea blanco al exportar */
+#reporte-completo {
+    background-color: white;
+}
+
+/* Reemplazo de la barra de progreso para compatibilidad con PDF */
+.progress-container { 
+    width: 100%; /* Esta línea es vital para que no desaparezca */
+    height: 10px; 
+    background-color: #eee !important; /* Importante para que salga en el PDF */
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    overflow: hidden; 
+    display: block; 
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3498db !important; /* El color azul ahora es persistente */
+    width: 0%; 
+    transition: width 0.3s ease;
+    -webkit-print-color-adjust: exact; /* Fuerza el color en impresiones/PDF */
+}
+
+
+.btn-pdf {
+    background-color: #e74c3c !important;
+    color: white !important;
+    border-color: #c0392b !important;
+    font-weight: bold;
+}
+
+
+
+
+@media print {
+    .no-print, .actions-container, button, .blockCheckbox {
+        display: none !important;
+    }
+}
+
+/* Estilo para que el PDF no capture bordes de botones de eliminación dentro de los títulos */
+.title-section button {
+    display: inline-block;
+}

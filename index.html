@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Semanal - IMDETECK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles_semanal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="main-wrapper" id="reporte-completo">
+    <div class="report-container">
+        <div class="header-top">
+            <img src="Grupo Sudinco.png" class="logo-gruposudinco" alt="Logo">
+            <div id="authorSignature">
+                Desarrollado por:<br>Ing. Christian Chávez<br>Version: 2.1.4
+            </div>
+        </div>
+
+        <div class="report-titles">
+            <h2>REPORTE SEMANAL DE ACTIVIDADES</h2>
+            <h3>DIRECCIÓN ADMINISTRATIVA</h3>
+        </div>
+
+        <div class="info-header">
+            <input type="text" id="nombre" placeholder="Ingresar el nombre">
+            <input type="text" id="fechaActual" placeholder="Selecciona una fecha">
+        </div>
+
+        <div class="grid-table">
+            <div class="grid-row header-row">
+                <div>Item</div>
+                <div></div>
+                <div>Tareas</div>
+                <div>%</div>
+                <div>Progreso</div>
+                <div>Días</div>
+                <div>F. Inicial</div>
+                <div>F. Final</div>
+                <div>Observaciones</div>
+            </div>
+            <div id="blocksContainer"></div>
+        </div>
+
+<div class="actions-container no-print">
+    <button id="addBlockButton" class="btn-action" onclick="addBlock()"><i class="fas fa-plus"></i> Añadir</button>
+    <button id="addTitleButton" class="btn-action" onclick="addTitle()"><i class="fas fa-heading"></i> Agregar Título</button>
+    <button id="btn-delete" class="btn-action" onclick="deleteSelectedBlocks()"><i class="fas fa-trash"></i> Eliminar</button>
+    <button id="btn-selectall" class="btn-action" onclick="toggleSelectAll()"><i class="fas fa-check-double"></i> Seleccionar Todos</button>
+    <button id="toggleLock" class="btn-action" onclick="toggleLock()"><i class="fas fa-lock"></i> Bloquear/Desbloquear</button>
+    <button id="btn-pdf" class="btn-action btn-pdf" onclick="downloadPDF()"><i class="fas fa-file-pdf"></i> PDF</button>
+</div>
+    </div>
+</div>
+
+<script src="script_semanal.js"></script>
+</body>
+</html>
