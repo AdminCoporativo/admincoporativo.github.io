@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Administrativo - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-code"></i>
+                <span>Sistema Administrativo</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="#"><i class="fas fa-home"></i> <span>Inicio</span></a>
+                    </li>
+                    <li id="menu-reportes" class="hidden">
+                        <a href="reportes.html"><i class="fas fa-file-chart-line"></i> <span>Reportes</span></a>
+                    </li>
+                    <li id="menu-inventario" class="hidden">
+                        <a href="#"><i class="fas fa-flask"></i> <span>Inventario</span></a>
+                    </li>
+                    <li id="menu-admin" class="hidden">
+                        <a href="admin.html"><i class="fas fa-user-shield"></i> <span>Usuarios</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <span id="navUserName">Nombre...</span>
+                    <small id="navUserRole">Rol</small>
+                </div>
+                <button id="btnLogout" title="Cerrar Sesión">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Bienvenido al Sistema Administrativo</h1>
+                <p id="currentDate"></p>
+            </header>
+
+            <section class="modules-container">
+                <div class="module-card" id="card-reportes" style="display:none;">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Reportes Gerenciales</h3>
+                    <p>Gestiona tareas y exporta resultados en PDF.</p>
+                    <a href="reportes.html" class="btn-module">Ingresar</a>
+                </div>
+
+                <div class="module-card" id="card-inventario" style="display:none;">
+                    <div class="card-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    <h3>Inventario Químico</h3>
+                    <p>Control de reactivos y medios de cultivo.</p>
+                    <button class="btn-module disabled">Próximamente</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/dashboard-logic.js"></script>
+    <script type="module" src="js/dashboard-ui.js"></script>
+</body>
+</html>

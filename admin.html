@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>KRYSWEB - Administración de Usuarios</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .user-list-container { margin-top: 20px; }
+        .user-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr 1fr;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .status-active { background: #dcfce7; color: #166534; }
+        .status-pending { background: #fef9c3; color: #854d0e; }
+        .module-checks label { margin-right: 10px; font-size: 13px; cursor: pointer; }
+        .btn-save-admin { background: #1e293b; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-logo"><span>KRYSWEB</span></div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-user-shield"></i> Usuarios</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Gestión de Usuarios</h1>
+                <p>Activa usuarios y asigna permisos de módulos.</p>
+            </header>
+
+            <div id="usersList" class="user-list-container">
+                <p>Cargando usuarios...</p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/admin-logic.js"></script>
+</body>
+</html>
