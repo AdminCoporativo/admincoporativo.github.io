@@ -1,0 +1,105 @@
+:root {
+    --bg-body: #f3f4f6;
+    --sidebar-bg: #1e293b;
+    --accent: #3b82f6;
+    --text-light: #94a3b8;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: #1e293b;
+}
+
+.dashboard-wrapper { display: flex; min-height: 100vh; }
+
+/* SIDEBAR STYLES */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar-logo {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+}
+
+.sidebar-menu ul { list-style: none; }
+.sidebar-menu li { margin-bottom: 10px; }
+.sidebar-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-menu li.active a, .sidebar-menu a:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.sidebar-user {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 100%;
+}
+
+.modules-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.module-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.module-card:hover { transform: translateY(-5px); }
+
+.card-icon { font-size: 45px; color: var(--accent); margin-bottom: 15px; }
+
+.btn-module {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hidden { display: none !important; }
