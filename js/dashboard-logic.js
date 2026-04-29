@@ -22,7 +22,7 @@ onAuthStateChanged(auth, (user) => {
             // 1. Verificamos si el usuario está aprobado
             if (data.activo === false) {
                 alert("Tu cuenta aún no ha sido activada por un administrador.");
-                signOut(auth).then(() => window.location.href = "login.html");
+                signOut(auth).then(() => window.location.href = "index.html");
                 return;
             }
 
@@ -45,7 +45,7 @@ onAuthStateChanged(auth, (user) => {
         });
     } else {
         // Si no hay sesión, al login
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 });
 
@@ -65,5 +65,5 @@ function toggleModulo(menuId, cardId, tienePermiso) {
 
 // Botón Cerrar Sesión
 document.getElementById("btnLogout")?.addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "login.html");
+    signOut(auth).then(() => window.location.href = "index.html");
 });

@@ -35,7 +35,7 @@ onAuthStateChanged(auth, async (user) => {
     const userDisplay = document.getElementById("userName");
     
     if (!user) {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     } else {
         usuarioUID = user.uid;
         try {
@@ -381,7 +381,7 @@ function actualizarBarra(input) {
 
 function cerrarSesion() {
     if (unsubscribe) unsubscribe();
-    signOut(auth).then(() => { window.location.href = "login.html"; });
+    signOut(auth).then(() => { window.location.href = "index.html"; });
 }
 
 function calcularDias(fila) {

@@ -7,9 +7,9 @@ onAuthStateChanged(auth, async (user) => {
 
     // 1. Si NO hay usuario iniciado
     if (!user) {
-        // Solo redirigir a login si NO estamos ya en login.html
-        if (!paginaActual.includes("login.html")) {
-            window.location.href = "login.html";
+
+        if (!paginaActual.includes("index.html")) {
+            window.location.href = "index.html";
         }
         return;
     }
@@ -23,20 +23,20 @@ onAuthStateChanged(auth, async (user) => {
             
             // Si el usuario está DESACTIVADO
             if (userData.activo === false) {
-                if (!paginaActual.includes("login.html")) {
+                if (!paginaActual.includes("index.html")) {
                     alert("Tu cuenta aún no ha sido activada por un administrador.");
-                    window.location.href = "login.html";
+                    window.location.href = "index.html";
                 }
             } 
             // Si el usuario está ACTIVO y está intentando entrar al login, mándalo al dashboard
-            else if (paginaActual.includes("login.html")) {
+            else if (paginaActual.includes("index.html")) {
                 window.location.href = "dashboard.html";
             }
 
         } else {
             // Si no existe el documento, mandarlo a login para que se registre o reintente
-            if (!paginaActual.includes("login.html")) {
-                window.location.href = "login.html";
+            if (!paginaActual.includes("index.html")) {
+                window.location.href = "index.html";
             }
         }
     } catch (error) {
