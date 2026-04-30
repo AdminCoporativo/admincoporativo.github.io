@@ -62,18 +62,6 @@ button {
     padding: 5px 8px;
 }
 
-.acciones button {
-    padding: 8px 12px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-/* TABLA */
-.tabla-container {
-    overflow-x: auto;
-}
-
-
 table {
     min-width: 1200px;
     border-collapse: collapse;
@@ -136,30 +124,8 @@ td:nth-child(6) {
     width: 50px;
 }
 
-/* PROGRESO */
-.progress {
-    width: 100%;
-    height: 20px;
-    background: #eee;
-}
-
 td:nth-child(5) {
     width: 180px;
-}
-
-.progress-bar {
-    height: 12px;
-    background: #0792bd;
-    width: 0%;
-    transition: all 0.3s ease;
-}
-
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
 }
 
 @media print {
@@ -180,16 +146,26 @@ td:nth-child(5) {
     }
 }
 
-/* fila mientras se arrastra */
-.dragging {
-    opacity: 0.5;
-    background-color: #f0f8ff;
-    border: 2px dashed #ccc;
+#tabla tbody tr {
+    touch-action: none; /* Crucial: evita que el navegador haga scroll al tocar la fila */
+    user-select: none;  /* Evita que se seleccione el texto al mantener presionado */
 }
 
+/* fila mientras se arrastra */
 #tabla tbody tr:not(.bloqueado) {
     cursor: move;
 }
+
+/* Asignación de anchos fijos para que no haya cambios entre Web y Móvil */
+#tabla th:nth-child(1), #tabla td:nth-child(1) { width: 45px; text-align: center; } /* Item */
+#tabla th:nth-child(2), #tabla td:nth-child(2) { width: 40px; text-align: center; } /* Check */
+#tabla th:nth-child(3), #tabla td:nth-child(3) { width: 380px; } /* Tareas */
+#tabla th:nth-child(4), #tabla td:nth-child(4) { width: 70px; }  /* % */
+#tabla th:nth-child(5), #tabla td:nth-child(5) { width: 130px; } /* Progreso */
+#tabla th:nth-child(6), #tabla td:nth-child(6) { width: 60px; text-align: center; } /* Días */
+#tabla th:nth-child(7), #tabla td:nth-child(7) { width: 140px; } /* F. Inicial */
+#tabla th:nth-child(8), #tabla td:nth-child(8) { width: 140px; } /* F. Final */
+#tabla th:nth-child(9), #tabla td:nth-child(9) { width: 280px; } /* Observaciones */
 
 /* cursor tipo Trello */
 tr {
@@ -210,24 +186,22 @@ tr:active {
     color: white;
 }
 
-/* ... (mantiene tus estilos anteriores) ... */
-
-.acciones {
-    display: flex;
-    gap: 10px;
-    padding: 15px 0;
-}
-
 .acciones button {
-    padding: 10px 15px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background: white;
     cursor: pointer;
-    border: 1px solid #ccc;
-    background: #fff;
+    font-weight: 500;
     transition: all 0.2s;
+    /* En móvil, los botones se ajustan mejor */
+    flex: 1 1 auto; 
+    min-width: 120px;
 }
 
 .acciones button:hover {
-    background: #f0f0f0;
+    background: #f1f5f9;
+    border-color: #94a3b8;
 }
 
 /* Estado bloqueado */
@@ -309,12 +283,7 @@ tr:active {
 }
 
 /* ================= TABLA MODERNA ================= */
-.tabla-container {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Para que los bordes de la tabla sigan al contenedor */
-}
+
 
 table {
     width: 100%;
@@ -377,27 +346,20 @@ textarea:focus, input:focus {
 /* ================= BARRAS DE PROGRESO REDONDEADAS ================= */
 .progress {
     width: 100%;
-    height: 12px;
+    height: 10px;
     background-color: #e2e8f0;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 5px;
     overflow: hidden;
-    position: relative;
 }
 
 .progress-bar {
     height: 100%;
-    border-radius: 10px; /* Bordes redondeados internos */
-    transition: width 0.4s ease, background-color 0.4s ease;
+    background-color: #3b82f6;
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
 /* ================= BOTONES MODERNOS ================= */
-.acciones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 25px;
-}
-
 button {
     display: flex;
     align-items: center;
@@ -457,9 +419,11 @@ button:active {
 
 /* ================= DRAG & DROP & ESTADOS ================= */
 .dragging {
-    opacity: 0.4;
-    background: #e0f2fe !important;
-    border: 2px dashed #3b82f6;
+    opacity: 0.8;
+    background-color: #e0f2fe !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+    z-index: 100;
 }
 
 .bloqueado tr {
@@ -479,8 +443,8 @@ tr[draggable="true"]:active {
 .acciones {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
+    gap: 10px;
+    margin-top: 20px;
     padding: 10px;
 }
 
@@ -698,4 +662,212 @@ button span, button i {
 
 .btn-guardar:hover {
     background: #27ae60;
+}
+
+#tabla thead {
+    background-color: #f1f5f9;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Ajuste del Layout General */
+@media (max-width: 992px) {
+    .dashboard-wrapper {
+        flex-direction: column; /* Sidebar arriba, contenido abajo */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .sidebar-menu ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .modules-container {
+        grid-template-columns: 1fr; /* Una sola columna de módulos en celular */
+    }
+}
+
+#tabla {
+    display: table !important; 
+    width: 100%;
+    min-width: 1200px !important; 
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* Forzar que la celda se adapte al contenido y no se monte */
+#tabla td {
+    vertical-align: top;
+    padding: 8px;
+    height: auto;
+    overflow: hidden;
+}
+
+/* Corregir el comportamiento de los textareas */
+.txt-tarea, .txt-obs {
+    width: 100% !important;
+    /*display: block;*/
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid transparent;
+    min-height: 35px;
+    line-height: 1.4;
+}
+
+/* Evitar el amontonamiento en filas de título */
+.fila-titulo td {
+    background-color: #f8fafc;
+    height: 40px;
+}
+
+/* Estilo para las barras de desplazamiento (opcional, para que se vea moderno) */
+.tabla-container::-webkit-scrollbar {
+    height: 8px;
+}
+.tabla-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+.tabla-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+
+.txt-tarea, .txt-obs {
+    width: 100%;
+    border: 1px solid transparent;
+    background: transparent;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    /*display: block;*/
+    box-sizing: border-box;
+    overflow: hidden; /* El JS se encarga de la altura */
+}
+
+.txt-tarea:focus, .txt-obs:focus {
+    border-bottom: 1px solid #3b82f6;
+    background: #fff;
+}
+
+/* Filas de Título */
+.fila-titulo {
+    background-color: #f8fafc !important;
+    font-weight: bold;
+}
+
+.input-titulo {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    color: #334155;
+    text-transform: uppercase;
+    outline: none;
+}
+
+#tabla {
+    display: table !important;
+    width: 100%;
+    min-width: 1200px !important; /* Fuerza el ancho de escritorio en móvil */
+    table-layout: fixed; /* OBLIGA al navegador a respetar los anchos de columna */
+    border-collapse: collapse;
+}
+
+/* Evitar que las celdas colapsen o se encimen */
+#tabla td {
+    vertical-align: top;
+    padding: 8px;
+    height: auto; /* Permite que la fila crezca según el texto */
+    border: 1px solid #e2e8f0;
+}
+
+/* ==========================================================================
+   TEXTAREAS (EL CONTENIDO QUE SE MONTA)
+   ========================================================================== */
+.txt-tarea, .txt-obs {
+    width: 100% !important;
+    /*display: block;*/
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid transparent;
+    background: transparent;
+    resize: none;
+    overflow: hidden; /* Evita barras de scroll internas */
+    line-height: 1.5;
+    font-size: 14px;
+    min-height: 30px;
+}
+
+/* Definición de anchos fijos para que el navegador no los comprima */
+#tabla th:nth-child(1), #tabla td:nth-child(1) { width: 50px; }  /* Item */
+#tabla th:nth-child(3), #tabla td:nth-child(3) { width: 400px; } /* Tarea */
+#tabla th:nth-child(5), #tabla td:nth-child(5) { width: 120px; } /* Progreso */
+#tabla th:nth-child(9), #tabla td:nth-child(9) { width: 300px; } /* Observaciones */
+
+/* Estilos de botones y acciones (Mantenemos tu lógica flex) */
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   CONTENEDOR Y TABLA (SCROLL HORIZONTAL)
+   ========================================================================== */
+/* 1. El contenedor DEBE tener overflow-x para permitir el scroll lateral */
+.tabla-container {
+    width: 100%;
+    overflow-x: auto !important; /* Habilita la barra de desplazamiento */
+    overflow-y: visible;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iPhone/iPad */
+}
+
+/* 2. La tabla DEBE mantener su ancho de escritorio siempre */
+#tabla {
+    display: table !important; /* Evita que se convierta en bloques */
+    width: 1200px !important;  /* Forzamos el ancho mínimo de la versión web */
+    min-width: 1200px !important;
+    table-layout: fixed;       /* Obliga a respetar los anchos de columna declarados */
+    border-collapse: collapse;
+    margin: 0;
+}
+
+/* 3. Asegurar que las celdas no se encimen */
+#tabla td {
+    padding: 10px;
+    vertical-align: top;
+    height: auto !important; /* Permite que la celda crezca si hay mucho texto */
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   DRAG & DROP TÁCTIL
+   ========================================================================== */
+#tabla tbody tr {
+    touch-action: none; /* Bloquea el scroll nativo solo sobre las filas para permitir arrastrar */
+    user-select: none;  /* Evita seleccionar texto al mantener presionado */
+}
+
+.dragging {
+    opacity: 0.7;
+    background-color: #eff6ff !important;
+    outline: 2px dashed #3b82f6;
+    transform: scale(1.01); /* Efecto visual de "levantado" en tablets */
 }
