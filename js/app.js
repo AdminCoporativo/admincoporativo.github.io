@@ -179,6 +179,10 @@ function duplicarSeleccionados() {
 
 /* CREAR FILA */
 
+/**
+ * Genera una fila (tr) completa para la tabla de KRYSWEB.
+ * Optimizada para evitar que las tareas se monten en dispositivos móviles.
+ */
 function crearFila(data = {}, appendFinal = true) {
     const tbody = document.querySelector("#tabla tbody");
     const fila = document.createElement("tr");
@@ -210,25 +214,29 @@ function crearFila(data = {}, appendFinal = true) {
         fila.innerHTML = `
             <td class="item"></td>
             <td><input type="checkbox"></td>
-            <td><textarea class="txt-tarea">${data.tarea || ""}</textarea></td>
+            <td><textarea class="txt-tarea" placeholder="Descripción de la tarea...">${data.tarea || ""}</textarea></td>
             <td><input type="number" class="input-porcentaje" value="${data.porcentaje || 0}" min="0" max="100"></td>
             <td><div class="progress"><div class="progress-bar"></div></div></td>
             <td class="dias">${data.dias || 0}</td>
             <td><input type="date" class="fecha-inicio" value="${data.inicio || ""}"></td>
             <td><input type="date" class="fecha-fin" value="${data.fin || ""}"></td>
-            <td><textarea class="txt-obs">${data.obs || ""}</textarea></td>`;
+            <td><textarea class="txt-obs" placeholder="Observaciones...">${data.obs || ""}</textarea></td>`;
 
         const txtTarea = fila.querySelector(".txt-tarea");
         const txtObs = fila.querySelector(".txt-obs");
         const inputPorc = fila.querySelector(".input-porcentaje");
 
-        // --- MANTENER LA ALTURA DEL TEXTAREA ---
+        // --- GESTIÓN DE ALTURA PARA EVITAR SOLAPAMIENTOS ---
+        // Al cargar desde la BD, esperamos a que la fila esté en el DOM
+        // y el CSS de 1200px esté aplicado.
+        const ajustarAlturas = () => {
+            requestAnimationFrame(() => {
+                autoResize(txtTarea);
+                autoResize(txtObs);
+            });
+        };
 
-        setTimeout(() => {
-            autoResize(txtTarea);
-            autoResize(txtObs);
-        }, 0);
-
+        // Eventos para auto-ajuste mientras el usuario escribe
         [txtTarea, txtObs].forEach(t => {
             t.addEventListener("input", () => { 
                 autoResize(t); 
@@ -236,6 +244,7 @@ function crearFila(data = {}, appendFinal = true) {
             });
         });
 
+        // Lógica de porcentaje y fechas
         actualizarBarra(inputPorc);
         inputPorc.addEventListener("input", () => {
             limitarPorcentaje(inputPorc);
@@ -249,25 +258,35 @@ function crearFila(data = {}, appendFinal = true) {
                 guardarConDelay(); 
             });
         });
+
+        // Si la fila se añade al final, disparamos el ajuste de altura con un leve delay
+        if (appendFinal) {
+            setTimeout(ajustarAlturas, 50);
+        }
     }
 
+    // 3. Inserción en el DOM
     if (appendFinal) {
         tbody.appendChild(fila);
     }
     
+    // Sincronizar numeración de items
     actualizarItems(); 
+    
     return fila;
 }
-
-/* ================= DRAG & DROP CORE ================= */
+/* ================= DRAG & DROP CORE (Soporte Mouse y Touch) ================= */
+/* ==========================================================================
+   FUNCIÓN: configurarDragAndDrop (Versión Híbrida: Mouse + Touch)
+   ========================================================================== */
 function configurarDragAndDrop() {
     const tbody = document.querySelector("#tabla tbody");
     if (!tbody) return;
 
+    // --- LÓGICA PARA MOUSE (ESCRITORIO) ---
     tbody.addEventListener("dragover", (e) => {
         if (ordenBloqueado) return;
-        e.preventDefault();
-        
+        e.preventDefault(); // Necesario para permitir el soltado
         const dragging = document.querySelector(".dragging");
         if (!dragging) return;
 
@@ -278,19 +297,68 @@ function configurarDragAndDrop() {
             tbody.insertBefore(dragging, afterElement);
         }
     });
-}
 
-function getDragAfterElement(container, y) {
-    const elementos = [...container.querySelectorAll("tr:not(.dragging)")];
-    return elementos.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
+    // --- LÓGICA PARA TOUCH (TABLETS Y MÓVILES) ---
+    tbody.addEventListener("touchstart", (e) => {
+        if (ordenBloqueado) return;
+        
+        // Buscamos la fila (tr) más cercana al punto de toque
+        const fila = e.target.closest("tr");
+        if (fila) {
+            fila.classList.add("dragging");
+            // Nota: No usamos e.preventDefault() aquí para permitir 
+            // que el usuario aún pueda hacer scroll si solo toca rápido.
         }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }, { passive: true });
+
+    tbody.addEventListener("touchmove", (e) => {
+        if (ordenBloqueado) return;
+        const dragging = document.querySelector(".dragging");
+        if (!dragging) return;
+
+        // IMPORTANTE: Prevenimos el scroll vertical de la página 
+        // mienras el usuario está moviendo una fila.
+        if (e.cancelable) e.preventDefault();
+
+        const touch = e.touches[0];
+        // Calculamos la posición respecto a la coordenada Y del dedo
+        const afterElement = getDragAfterElement(tbody, touch.clientY);
+        
+        if (afterElement == null) {
+            tbody.appendChild(dragging);
+        } else {
+            tbody.insertBefore(dragging, afterElement);
+        }
+    }, { passive: false });
+
+    tbody.addEventListener("touchend", (e) => {
+        const dragging = document.querySelector(".dragging");
+        if (dragging) {
+            dragging.classList.remove("dragging");
+            
+            // Guardamos los cambios de orden en la base de datos
+            actualizarItems();
+            if (typeof guardarConDelay === "function") {
+                guardarConDelay();
+            }
+        }
+    });
+
+    // --- FUNCIÓN AUXILIAR: Determinar posición de inserción ---
+    function getDragAfterElement(container, y) {
+        // Obtenemos todas las filas excepto la que estamos arrastrando
+        const draggableElements = [...container.querySelectorAll("tr:not(.dragging)")];
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
 }
 
 /* ================= FUNCIONES DE ACCIÓN ================= */
@@ -353,8 +421,16 @@ function guardarConDelay() {
 /* ================= UTILIDADES UI ================= */
 function autoResize(el) {
     if (!el) return;
+    // Reseteamos para recalcular
     el.style.height = 'auto'; 
-    el.style.height = el.scrollHeight + 'px';
+    // Ajustamos al tamaño real del contenido
+    el.style.height = (el.scrollHeight) + 'px'; 
+    
+    // Forzamos al contenedor padre (td) a no limitar la altura
+    const parentTd = el.closest('td');
+    if(parentTd) {
+        parentTd.style.height = 'auto';
+    }
 }
 
 function limitarPorcentaje(input) {
