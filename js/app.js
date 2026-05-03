@@ -26,7 +26,7 @@ let unsubscribe = null;
 let ignorarSnapshot = false;
 let rolUsuario = "usuario";
 let permisosUsuario = {};
-let ordenBloqueado = false; 
+let ordenBloqueado = true; 
 let todoSeleccionado = false;
 let timeoutGuardar;
 
@@ -80,6 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const [id, funcion] of Object.entries(botones)) {
         const btn = document.getElementById(id);
         if (btn) btn.addEventListener("click", funcion);
+    }
+
+    // Forzar el estado visual inicial de bloqueo
+    const btn = document.getElementById("btnBloquear");
+    const tabla = document.getElementById("tabla");
+    if (btn && tabla) {
+        btn.innerHTML = "🔒 Desbloquear Tareas";
+        btn.classList.add("btn-active");
+        tabla.classList.add("bloqueado");
     }
 
     configurarDragAndDrop();
