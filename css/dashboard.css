@@ -103,3 +103,58 @@ body {
 }
 
 .hidden { display: none !important; }
+
+/* --- RESPONSIVIDAD --- */
+
+/* Estilo para el botón hamburguesa (oculto por defecto en desktop) */
+.mobile-toggle {
+    display: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--sidebar-bg);
+}
+
+/* Tablet y Celulares */
+@media (max-width: 992px) {
+    .sidebar {
+        left: -260px; /* Esconde el menú lateral */
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        left: 0; /* Muestra el menú al activar */
+    }
+
+    .main-content {
+        margin-left: 0; /* Elimina el margen lateral */
+        padding: 20px;
+    }
+
+    .mobile-toggle {
+        display: block; /* Muestra el botón en móviles */
+    }
+
+    .modules-container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}
+
+/* Ajustes finos para celulares pequeños */
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .module-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        z-index: 9999; /* Asegura que el menú esté por encima de las cards de usuario */
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    }
+}

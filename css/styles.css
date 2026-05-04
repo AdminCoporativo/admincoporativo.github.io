@@ -159,7 +159,7 @@ td:nth-child(5) {
 /* Asignación de anchos fijos para que no haya cambios entre Web y Móvil */
 #tabla th:nth-child(1), #tabla td:nth-child(1) { width: 45px; text-align: center; } /* Item */
 #tabla th:nth-child(2), #tabla td:nth-child(2) { width: 40px; text-align: center; } /* Check */
-#tabla th:nth-child(3), #tabla td:nth-child(3) { width: 380px; } /* Tareas */
+#tabla th:nth-child(3), #tabla td:nth-child(3) { width: 300px; } /* Tareas */
 #tabla th:nth-child(4), #tabla td:nth-child(4) { width: 70px; }  /* % */
 #tabla th:nth-child(5), #tabla td:nth-child(5) { width: 130px; } /* Progreso */
 #tabla th:nth-child(6), #tabla td:nth-child(6) { width: 60px; text-align: center; } /* Días */
@@ -697,7 +697,6 @@ button span, button i {
     }
 }
 
-
 /* Forzar que la celda se adapte al contenido y no se monte */
 #tabla td {
     vertical-align: top;
@@ -769,8 +768,6 @@ button span, button i {
     text-transform: uppercase;
     outline: none;
 }
-
-
 
 /* Evitar que las celdas colapsen o se encimen */
 #tabla td {
@@ -855,4 +852,12 @@ button span, button i {
     background-color: #eff6ff !important;
     outline: 2px dashed #3b82f6;
     transform: scale(1.01); /* Efecto visual de "levantado" en tablets */
+}
+
+@media (max-width: 768px) {
+    .user-card {
+        grid-template-columns: 1fr; /* Apila los elementos */
+        gap: 10px;
+        text-align: left;
+    }
 }
