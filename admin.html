@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="dashboard-wrapper">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-logo"><span>KRYSWEB</span></div>
             <nav class="sidebar-menu">
                 <ul>
@@ -37,6 +37,11 @@
         </aside>
 
         <main class="main-content">
+
+            <div class="mobile-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+            </div>
+
             <header class="main-header">
                 <h1>Gestión de Usuarios</h1>
                 <p>Activa usuarios y asigna permisos de módulos.</p>
@@ -47,6 +52,31 @@
             </div>
         </main>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebar = document.getElementById('sidebar');
+        const mobileToggle = document.getElementById('mobile-toggle');
+
+        if (mobileToggle && sidebar) {
+            mobileToggle.addEventListener('click', (e) => {
+                // Evita que el clic se propague al documento
+                e.stopPropagation(); 
+                sidebar.classList.toggle('active');
+                console.log("Menú toggleado"); // Para depuración
+            });
+
+            // Cerrar el menú si se hace clic en cualquier parte del contenido principal
+            document.querySelector('.main-content').addEventListener('click', () => {
+                if (sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        } else {
+            console.error("No se encontraron los elementos del menú. Revisa los IDs.");
+        }
+    });
+</script>
 
     <script type="module" src="js/auth-guard.js"></script>
     <script type="module" src="js/admin-logic.js"></script>
