@@ -67,3 +67,23 @@ function toggleModulo(menuId, cardId, tienePermiso) {
 document.getElementById("btnLogout")?.addEventListener("click", () => {
     signOut(auth).then(() => window.location.href = "index.html");
 });
+
+// Función para abrir menu en móvil
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobile-toggle');
+
+    if (mobileToggle && sidebar) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+        });
+
+        // Cerrar al hacer clic fuera del sidebar
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('active') && !sidebar.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    }
+});
